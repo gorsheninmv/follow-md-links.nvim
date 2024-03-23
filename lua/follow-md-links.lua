@@ -116,6 +116,14 @@ end
 
 local M = {}
 
+M.config = {
+  follow_key = "<cr>",
+}
+
+function M.setup(args)
+  M.config = vim.tbl_deep_extend("force", M.config, args or {})
+end
+
 function M.follow_link()
 	local link_destination = get_link_destination()
 

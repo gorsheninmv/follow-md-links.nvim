@@ -2,7 +2,7 @@
 -- FOLLOW MD LINKS
 --
 
-local nvim_buf_set_keymap = vim.api.nvim_buf_set_keymap
+local plugin = require("follow-md-links")
 
 -- follow md links
-nvim_buf_set_keymap(0, 'n', '<cr>', ':lua require("follow-md-links").follow_link()<cr>', {noremap = true, silent = true})
+vim.keymap.set('n', plugin.config.follow_key, plugin.follow_link, {noremap = true, silent = true, buffer = true})
